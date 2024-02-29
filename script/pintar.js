@@ -25,6 +25,7 @@ var pantalla = document.querySelector('canvas');
         }
 
         function seleccionarColor(evento) {
+            evento.preventDefault();
             let x = evento.pageX-pantalla.offsetLeft;
             let y = evento.pageY-pantalla.offsetTop;
 
@@ -43,6 +44,7 @@ var pantalla = document.querySelector('canvas');
         var puedoDibujar = false;
 
 function dibujarCirculo(evento) {
+    evento.preventDefault();
     if (puedoDibujar) {
         var x, y;
 
@@ -66,7 +68,8 @@ function dibujarCirculo(evento) {
 pantalla.addEventListener('mousemove', dibujarCirculo);
 pantalla.addEventListener('touchmove', dibujarCirculo);
 
-function habilitarDibujar() {
+function habilitarDibujar(evento) {
+    evento.preventDefault();
     puedoDibujar = true;
 }
 
